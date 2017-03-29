@@ -9,9 +9,24 @@
 
     <!-- Define your beans here -->
     
-    <bean id="myCoach"
-    	class="com.github.springdemo.SoccerCoach">
+    <bean id="myFortune"
+    	class="com.github.springdemo.HappyFortuneService">
     </bean>
+    
+    <bean id="myCoach"
+    	class="com.github.springdemo.TrackCoach">
+    	
+    	<!-- constructor injection -->
+    	<constructor-arg ref="myFortune"/>
+    </bean>
+    
+    <bean id="myCricketCoach"
+    	class="com.github.springdemo.CricketCoach">
+    		<property name="fortuneService" ref="myFortune"/>
+    		<property name="emailAddress" value="test@test.com"/>
+    		<property name="team" value="PichonesGC"/>
+    </bean>
+    
     
 </beans>
 
