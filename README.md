@@ -1,2 +1,2 @@
 # springAndHibernate
-Spring and Hibernate study projects
+These projects were created following the Spring and Hibernate course from Udemy
