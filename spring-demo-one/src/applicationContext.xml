@@ -7,27 +7,41 @@
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <!-- Define your beans here -->
-    
+	<!-- load properties -->
+	<context:property-placeholder location="classpath:sport.properties"/>
+
+    <!-- Define your beans here -->    
     <bean id="myFortune"
     	class="com.github.springdemo.HappyFortuneService">
     </bean>
     
+    <bean id="myRandomFortune"
+    	class="com.github.springdemo.RandomFortune">
+    		<property name="list">
+    			<list>
+    				<value>Good luck!</value>
+    				<value>Better luck next time!</value>
+    				<value>You're on Fire!</value>
+    			</list>
+    		</property>
+    </bean>
+    
+    
     <bean id="myCoach"
-    	class="com.github.springdemo.TrackCoach">
+    	class="com.github.springdemo.SoccerCoach">
     	
     	<!-- constructor injection -->
-    	<constructor-arg ref="myFortune"/>
+    	<constructor-arg ref="myRandomFortune"/>
     </bean>
     
     <bean id="myCricketCoach"
     	class="com.github.springdemo.CricketCoach">
     		<property name="fortuneService" ref="myFortune"/>
-    		<property name="emailAddress" value="test@test.com"/>
-    		<property name="team" value="PichonesGC"/>
+    		<property name="emailAddress" value="${foo.email}"/>
+    		<property name="team" value="${foo.team}"/>
     </bean>
     
-    
+
 </beans>
 
 
