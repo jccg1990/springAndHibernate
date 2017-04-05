@@ -28,18 +28,21 @@
     
     
     <bean id="myCoach"
-    	class="com.github.springdemo.SoccerCoach">
+    	class="com.github.springdemo.SoccerCoach"
+    	scope="prototype">
     	
     	<!-- constructor injection -->
     	<constructor-arg ref="myRandomFortune"/>
     </bean>
     
+    <!-- 
     <bean id="myCricketCoach"
     	class="com.github.springdemo.CricketCoach">
     		<property name="fortuneService" ref="myFortune"/>
     		<property name="emailAddress" value="${foo.email}"/>
     		<property name="team" value="${foo.team}"/>
     </bean>
+     -->
     
 
 </beans>

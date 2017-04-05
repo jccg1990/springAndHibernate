@@ -10,10 +10,13 @@ public class SpringHelloApp {
 		
 		//retrive bean from spriong container
 		Coach theCoach = context.getBean("myCoach", Coach.class);
+		Coach otherCoach = context.getBean("myCoach", Coach.class);
 		
 		//call methods of bean
 		System.out.println(theCoach.getDailyWorkout());
 		System.out.println(theCoach.getDailyFortune());
+		
+		System.out.println(theCoach == otherCoach);
 		
 		//close context
 		context.close();
